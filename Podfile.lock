@@ -1,0 +1,32 @@
+PODS:
+  - Alamofire (4.8.2)
+  - Connectivity (2.2.1)
+  - lottie-ios (2.5.3)
+  - SwiftGen (6.0.2)
+  - SwiftLint (0.27.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.5)
+  - Connectivity (~> 2.0)
+  - lottie-ios (~> 2.5.2)
+  - SwiftGen (~> 6.0.2)
+  - SwiftLint (~> 0.27.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Connectivity
+    - lottie-ios
+    - SwiftGen
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Connectivity: 120bdaaed16f708b0762603cbca6fd496cde9ca7
+  lottie-ios: a50d5c0160425cd4b01b852bb9578963e6d92d31
+  SwiftGen: e5b047067aa84082826a0c4f1c4c2ddc95bcf74c
+  SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
+
+PODFILE CHECKSUM: 64c079e95f37be59882e90e0621ad9fdaa3f6f40
+
+COCOAPODS: 1.5.3
