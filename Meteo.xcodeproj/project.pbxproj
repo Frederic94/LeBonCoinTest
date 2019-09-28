@@ -23,6 +23,10 @@
 		A15439A0233F917F00F77D5A /* Meteo_Components.h in Headers */ = {isa = PBXBuildFile; fileRef = A154399E233F917F00F77D5A /* Meteo_Components.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A15439A3233F917F00F77D5A /* Meteo_Components.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A154399C233F917F00F77D5A /* Meteo_Components.framework */; };
 		A15439A4233F917F00F77D5A /* Meteo_Components.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A154399C233F917F00F77D5A /* Meteo_Components.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A15439B0233F941A00F77D5A /* RemoteDashboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15439AF233F941A00F77D5A /* RemoteDashboardService.swift */; };
+		A15439B2233F98D000F77D5A /* DashboardUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15439B1233F98D000F77D5A /* DashboardUseCase.swift */; };
+		A15439B4233FA33500F77D5A /* ForecastWS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15439B3233FA33500F77D5A /* ForecastWS.swift */; };
+		A15439B7233FAC7D00F77D5A /* DateFormatterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15439B6233FAC7D00F77D5A /* DateFormatterExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +113,10 @@
 		A154399C233F917F00F77D5A /* Meteo_Components.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Meteo_Components.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A154399E233F917F00F77D5A /* Meteo_Components.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Meteo_Components.h; sourceTree = "<group>"; };
 		A154399F233F917F00F77D5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A15439AF233F941A00F77D5A /* RemoteDashboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDashboardService.swift; sourceTree = "<group>"; };
+		A15439B1233F98D000F77D5A /* DashboardUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardUseCase.swift; sourceTree = "<group>"; };
+		A15439B3233FA33500F77D5A /* ForecastWS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWS.swift; sourceTree = "<group>"; };
+		A15439B6233FAC7D00F77D5A /* DateFormatterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtensions.swift; sourceTree = "<group>"; };
 		A1A5493CEE0AECD24441A7D2 /* Pods-Meteo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meteo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Meteo/Pods-Meteo.release.xcconfig"; sourceTree = "<group>"; };
 		BAC9A13A05E441227954884A /* Pods_Meteo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meteo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -235,6 +243,7 @@
 		A154397A233F915500F77D5A /* Meteo-Core */ = {
 			isa = PBXGroup;
 			children = (
+				A15439B5233FAC4D00F77D5A /* Extensions */,
 				A15439AB233F91DF00F77D5A /* API */,
 				A15439AA233F91C600F77D5A /* UseCases */,
 				A154397B233F915500F77D5A /* Meteo_Core.h */,
@@ -280,6 +289,7 @@
 		A15439AA233F91C600F77D5A /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				A15439B1233F98D000F77D5A /* DashboardUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -287,6 +297,8 @@
 		A15439AB233F91DF00F77D5A /* API */ = {
 			isa = PBXGroup;
 			children = (
+				A15439AF233F941A00F77D5A /* RemoteDashboardService.swift */,
+				A15439B3233FA33500F77D5A /* ForecastWS.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -312,6 +324,14 @@
 			children = (
 			);
 			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		A15439B5233FAC4D00F77D5A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A15439B6233FAC7D00F77D5A /* DateFormatterExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		DFD4B70D8D5A3F48357261C7 /* Frameworks */ = {
@@ -480,6 +500,7 @@
 					};
 					A1543978233F915500F77D5A = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					A1543980233F915600F77D5A = {
 						CreatedOnToolsVersion = 10.1;
@@ -642,6 +663,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A15439B2233F98D000F77D5A /* DashboardUseCase.swift in Sources */,
+				A15439B4233FA33500F77D5A /* ForecastWS.swift in Sources */,
+				A15439B7233FAC7D00F77D5A /* DateFormatterExtensions.swift in Sources */,
+				A15439B0233F941A00F77D5A /* RemoteDashboardService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -835,6 +860,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8AAD8BEDFFB147F4A902BFB4 /* Pods-Meteo.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Meteo/Info.plist;
@@ -853,6 +879,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A1A5493CEE0AECD24441A7D2 /* Pods-Meteo.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Meteo/Info.plist;
@@ -948,6 +975,7 @@
 		A1543991233F915600F77D5A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -957,7 +985,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Meteo-Core/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -966,6 +994,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.LeBonCoin.Meteo-Core";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -976,6 +1005,7 @@
 		A1543992233F915600F77D5A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -985,7 +1015,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Meteo-Core/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1053,7 +1083,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Meteo-Components/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1081,7 +1111,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Meteo-Components/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
