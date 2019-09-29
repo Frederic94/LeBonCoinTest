@@ -9,15 +9,15 @@
 import Foundation
 
 public struct ForecastsResponseWS: Decodable {
-    let forecasts: [Date: Forecast]
+    let forecasts: [Date: ForecastWS]
     
     public init(from decoder: Decoder) throws {
         let formatter = DateFormatter.yearMonthDayWithHourSeparatedByDash
         let container = try decoder.container(keyedBy: CustomCodingKeys.self)
-        var array = [Date: Forecast]()
+        var array = [Date: ForecastWS]()
         for key in container.allKeys {
             if let codingKey = CustomCodingKeys(stringValue: key.stringValue),
-                let value = try? container.decode(Forecast.self, forKey: codingKey),
+                let value = try? container.decode(ForecastWS.self, forKey: codingKey),
                 let date = formatter.date(from: key.stringValue) {
                 array[date] = value
             }
@@ -38,35 +38,29 @@ private struct CustomCodingKeys: CodingKey {
     }
 }
 
-public struct Forecast: Decodable {
-    let temperature: Temperature
-    let nebulosite: Nebulosite
-    let pression: Pression
+public struct ForecastWS: Decodable {
+    let temperature: TemperatureWS
+    let nebulosite: NebulositeWS
+    let pression: PressionWS
     let pluie: Double
 }
 
-public struct Nebulosite: Decodable {
+public struct NebulositeWS: Decodable {
     let totale: Double
     let haute: Double
     let moyenne: Double
     let basse: Double
 }
 
-public struct Pression: Decodable {
+public struct PressionWS: Decodable {
     let niveau_de_la_mer: Double
 }
 
 
-public struct Temperature: Decodable {
+public struct TemperatureWS: Decodable {
     let value: Double
     
     enum CodingKeys: String, CodingKey {
         case value = "sol"
-    }
-}
-
-public extension Temperature {
-    func toCelsius() -> String {
-        return String(format: "%.0f", value - 273.15)
     }
 }
