@@ -9,16 +9,17 @@
 import Foundation
 
 import Meteo_Core
+import Meteo_Components
 
 enum MasterCell {
-    case forecast(date: Date, temperature: Double)
+    case forecast(model: ForecastModel)
 }
 
 final class MasterViewModel {
     
     enum Constant {
         static let hourMorning: Int = 5
-        static let hourA: Int = 14
+        static let hourAfternoon: Int = 14
     }
     
     private let useCase: DashboardUseCase
@@ -55,7 +56,30 @@ final class MasterViewModel {
                          let hour = Calendar.current.component(.hour, from: value.date)
                         return hour == Constant.hourMorning
                     }
-                    return .forecast(date: key, temperature: morning?.temperature ?? 0)
+                    
+                    var morningTemp: String?
+                    if let morning = morning {
+                        morningTemp = "\(morning.temperatureCelsius)°"
+                    }
+                    
+                    let afternoon = values.first { value in
+                        let hour = Calendar.current.component(.hour, from: value.date)
+                        return hour == Constant.hourAfternoon
+                    }
+                    
+                    var afternoonTemp: String?
+                    var iconName = ""
+                    if let afternoon = afternoon {
+                        afternoonTemp = "\(afternoon.temperatureCelsius)°"
+                        iconName = afternoon.pluie > 0 ? Asset.partlyshower.name : Asset.partlycloudy.name
+                    }
+                    
+                    
+                    let model = ForecastModel(dayName: key.dayName(),
+                                              morningTemp: morningTemp, afternoonTemp: afternoonTemp,
+                                              iconName: iconName)
+                    
+                    return .forecast(model: model)
                 }
         }
     }

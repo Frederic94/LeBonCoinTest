@@ -14,11 +14,9 @@ public struct Forecast {
     //let nebulosite: NebulositeWS
     public let pression: Double
     public let pluie: Double
+    
+    public var temperatureCelsius: String {
+         return String(format: "%.0f", temperature - 273.15)
+    }
+    
 }
-
-
-//public extension Temperature {
-//    func toCelsius() -> String {
-//        return String(format: "%.0f", value - 273.15)
-//    }
-//}

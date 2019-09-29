@@ -34,6 +34,12 @@
 		A15439C7233FEC1E00F77D5A /* DataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15439C6233FEC1E00F77D5A /* DataFactory.swift */; };
 		A15439CA233FFCC100F77D5A /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15439C9233FFCC100F77D5A /* Forecast.swift */; };
 		A15439CC234000F200F77D5A /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15439CB234000F200F77D5A /* DateExtensions.swift */; };
+		A15439D12340CB1F00F77D5A /* ForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15439CF2340CB1F00F77D5A /* ForecastCell.swift */; };
+		A15439D22340CB1F00F77D5A /* ForecastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A15439D02340CB1F00F77D5A /* ForecastCell.xib */; };
+		A15439D42340CB4E00F77D5A /* Nibable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15439D32340CB4E00F77D5A /* Nibable.swift */; };
+		A15439D72340D17300F77D5A /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15439D62340D17300F77D5A /* UITableViewExtensions.swift */; };
+		A15439E02340D86C00F77D5A /* Components.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A15439DF2340D86C00F77D5A /* Components.xcassets */; };
+		A17E052A2340DA630037A1C1 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17E05292340DA630037A1C1 /* Assets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +137,12 @@
 		A15439C6233FEC1E00F77D5A /* DataFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFactory.swift; sourceTree = "<group>"; };
 		A15439C9233FFCC100F77D5A /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		A15439CB234000F200F77D5A /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		A15439CF2340CB1F00F77D5A /* ForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCell.swift; sourceTree = "<group>"; };
+		A15439D02340CB1F00F77D5A /* ForecastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForecastCell.xib; sourceTree = "<group>"; };
+		A15439D32340CB4E00F77D5A /* Nibable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nibable.swift; sourceTree = "<group>"; };
+		A15439D62340D17300F77D5A /* UITableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
+		A15439DF2340D86C00F77D5A /* Components.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Components.xcassets; sourceTree = "<group>"; };
+		A17E05292340DA630037A1C1 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		A1A5493CEE0AECD24441A7D2 /* Pods-Meteo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meteo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Meteo/Pods-Meteo.release.xcconfig"; sourceTree = "<group>"; };
 		BAC9A13A05E441227954884A /* Pods_Meteo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meteo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -225,6 +237,7 @@
 		A1543944233F73EA00F77D5A /* Meteo */ = {
 			isa = PBXGroup;
 			children = (
+				A15439D52340D15E00F77D5A /* Extensions */,
 				A15439AC233F920C00F77D5A /* Features */,
 				A1543945233F73EA00F77D5A /* AppDelegate.swift */,
 				A154394C233F73EC00F77D5A /* Assets.xcassets */,
@@ -278,10 +291,13 @@
 		A154399D233F917F00F77D5A /* Meteo-Components */ = {
 			isa = PBXGroup;
 			children = (
+				A15439E12340D8C800F77D5A /* Generated */,
+				A15439D82340D75700F77D5A /* Resources */,
 				A15439A9233F91AA00F77D5A /* Molecules */,
 				A15439A8233F919D00F77D5A /* Atoms */,
 				A154399E233F917F00F77D5A /* Meteo_Components.h */,
 				A154399F233F917F00F77D5A /* Info.plist */,
+				A15439D32340CB4E00F77D5A /* Nibable.swift */,
 			);
 			path = "Meteo-Components";
 			sourceTree = "<group>";
@@ -296,6 +312,7 @@
 		A15439A9233F91AA00F77D5A /* Molecules */ = {
 			isa = PBXGroup;
 			children = (
+				A15439CD2340CAF000F77D5A /* Cells */,
 			);
 			path = Molecules;
 			sourceTree = "<group>";
@@ -377,6 +394,47 @@
 				A15439C9233FFCC100F77D5A /* Forecast.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		A15439CD2340CAF000F77D5A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A15439CE2340CAF800F77D5A /* ForecastCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		A15439CE2340CAF800F77D5A /* ForecastCell */ = {
+			isa = PBXGroup;
+			children = (
+				A15439CF2340CB1F00F77D5A /* ForecastCell.swift */,
+				A15439D02340CB1F00F77D5A /* ForecastCell.xib */,
+			);
+			path = ForecastCell;
+			sourceTree = "<group>";
+		};
+		A15439D52340D15E00F77D5A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A15439D62340D17300F77D5A /* UITableViewExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A15439D82340D75700F77D5A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A15439DF2340D86C00F77D5A /* Components.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A15439E12340D8C800F77D5A /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				A17E05292340DA630037A1C1 /* Assets.swift */,
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 		DFD4B70D8D5A3F48357261C7 /* Frameworks */ = {
@@ -512,6 +570,7 @@
 				A1543998233F917F00F77D5A /* Sources */,
 				A1543999233F917F00F77D5A /* Frameworks */,
 				A154399A233F917F00F77D5A /* Resources */,
+				A15439E22340D8EF00F77D5A /* SwiftGen */,
 			);
 			buildRules = (
 			);
@@ -553,6 +612,7 @@
 					};
 					A154399B233F917F00F77D5A = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -622,6 +682,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A15439D22340CB1F00F77D5A /* ForecastCell.xib in Resources */,
+				A15439E02340D86C00F77D5A /* Components.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,6 +716,24 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Meteo/Pods-Meteo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A15439E22340D8EF00F77D5A /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/scripts/swiftgen-components.sh\"\n";
+		};
 		DEB0458B636105B87FAE742F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -683,6 +763,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A15439D72340D17300F77D5A /* UITableViewExtensions.swift in Sources */,
 				A15439C3233FBD2B00F77D5A /* MasterViewModel.swift in Sources */,
 				A15439C5233FBD3900F77D5A /* DetailViewModel.swift in Sources */,
 				A15439C1233FBCF200F77D5A /* MasterViewController.swift in Sources */,
@@ -734,6 +815,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A15439D12340CB1F00F77D5A /* ForecastCell.swift in Sources */,
+				A15439D42340CB4E00F77D5A /* Nibable.swift in Sources */,
+				A17E052A2340DA630037A1C1 /* Assets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1118,6 +1202,7 @@
 		A15439A6233F917F00F77D5A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1136,6 +1221,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.LeBonCoin.Meteo-Components";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1146,6 +1232,7 @@
 		A15439A7233F917F00F77D5A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

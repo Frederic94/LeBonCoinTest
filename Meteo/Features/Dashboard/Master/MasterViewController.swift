@@ -9,6 +9,7 @@
 import UIKit
 
 import Meteo_Core
+import Meteo_Components
 
 final class MasterViewController: UITableViewController {
     
@@ -28,10 +29,8 @@ final class MasterViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = viewModel.getCell(at: indexPath)
         switch cell {
-        case .forecast(let date, let forecast):
-            let test = UITableViewCell()
-            test.textLabel?.text = "\(date)"
-            return test
+        case .forecast(let model):
+            return cellForecast(tableView: tableView, indexPath: indexPath, model: model)
         }
     }
 }
@@ -39,7 +38,14 @@ final class MasterViewController: UITableViewController {
 // MARK: Setup
 private extension MasterViewController {
     func setup() {
+        setupTableView()
         setupVM()
+    }
+    
+    func setupTableView() {
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.register(nib: ForecastCell.nib, withCellClass: ForecastCell.self)
     }
     
     func setupVM() {
@@ -50,5 +56,13 @@ private extension MasterViewController {
         }
         
         viewModel.fetch()
+    }
+}
+
+private extension MasterViewController {
+    func cellForecast(tableView: UITableView, indexPath: IndexPath, model: ForecastModel) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withClass: ForecastCell.self, for: indexPath)
+        cell.configure(model: model)
+        return cell
     }
 }

@@ -42,4 +42,10 @@ public extension Date {
         guard !components.isEmpty else { return nil }
         return Calendar.current.date(from: Calendar.current.dateComponents(components, from: self))
     }
+    
+    public func dayName() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.setLocalizedDateFormatFromTemplate("EEEE")
+        return dateFormatter.string(from: self)
+    }
 }
