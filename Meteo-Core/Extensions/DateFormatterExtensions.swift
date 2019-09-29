@@ -14,4 +14,10 @@ extension DateFormatter {
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return formatter
     }
+    
+    public static var hour: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH"
+        return formatter
+    }
 }

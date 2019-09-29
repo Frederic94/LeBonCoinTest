@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		31F218D88D1662BF774D7741 /* Pods_Meteo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC9A13A05E441227954884A /* Pods_Meteo.framework */; };
+		A112E3DB234134DE008E6816 /* StoryboardScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A112E3DA234134DE008E6816 /* StoryboardScenes.swift */; };
+		A129F08923413F3300F116B9 /* ForecastByHourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129F08723413F3300F116B9 /* ForecastByHourCell.swift */; };
+		A129F08A23413F3300F116B9 /* ForecastByHourCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A129F08823413F3300F116B9 /* ForecastByHourCell.xib */; };
+		A129F08C2341455500F116B9 /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129F08B2341455500F116B9 /* UICollectionViewExtensions.swift */; };
 		A1543946233F73EA00F77D5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1543945233F73EA00F77D5A /* AppDelegate.swift */; };
 		A154394D233F73EC00F77D5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A154394C233F73EC00F77D5A /* Assets.xcassets */; };
 		A1543950233F73EC00F77D5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A154394E233F73EC00F77D5A /* LaunchScreen.storyboard */; };
@@ -104,6 +108,10 @@
 
 /* Begin PBXFileReference section */
 		8AAD8BEDFFB147F4A902BFB4 /* Pods-Meteo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meteo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Meteo/Pods-Meteo.debug.xcconfig"; sourceTree = "<group>"; };
+		A112E3DA234134DE008E6816 /* StoryboardScenes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardScenes.swift; sourceTree = "<group>"; };
+		A129F08723413F3300F116B9 /* ForecastByHourCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastByHourCell.swift; sourceTree = "<group>"; };
+		A129F08823413F3300F116B9 /* ForecastByHourCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForecastByHourCell.xib; sourceTree = "<group>"; };
+		A129F08B2341455500F116B9 /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtensions.swift; sourceTree = "<group>"; };
 		A1543942233F73EA00F77D5A /* Meteo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meteo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1543945233F73EA00F77D5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A154394C233F73EC00F77D5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -206,6 +214,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A129F08623413F0200F116B9 /* ForecastByHourCell */ = {
+			isa = PBXGroup;
+			children = (
+				A129F08723413F3300F116B9 /* ForecastByHourCell.swift */,
+				A129F08823413F3300F116B9 /* ForecastByHourCell.xib */,
+			);
+			path = ForecastByHourCell;
+			sourceTree = "<group>";
+		};
 		A1543939233F73EA00F77D5A = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +254,7 @@
 		A1543944233F73EA00F77D5A /* Meteo */ = {
 			isa = PBXGroup;
 			children = (
+				A17E052C234132FC0037A1C1 /* Generated */,
 				A15439D52340D15E00F77D5A /* Extensions */,
 				A15439AC233F920C00F77D5A /* Features */,
 				A1543945233F73EA00F77D5A /* AppDelegate.swift */,
@@ -399,6 +417,7 @@
 		A15439CD2340CAF000F77D5A /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				A129F08623413F0200F116B9 /* ForecastByHourCell */,
 				A15439CE2340CAF800F77D5A /* ForecastCell */,
 			);
 			path = Cells;
@@ -417,6 +436,7 @@
 			isa = PBXGroup;
 			children = (
 				A15439D62340D17300F77D5A /* UITableViewExtensions.swift */,
+				A129F08B2341455500F116B9 /* UICollectionViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -435,6 +455,22 @@
 				A17E05292340DA630037A1C1 /* Assets.swift */,
 			);
 			path = Generated;
+			sourceTree = "<group>";
+		};
+		A17E052C234132FC0037A1C1 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				A17E052D234133030037A1C1 /* Outputs */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		A17E052D234133030037A1C1 /* Outputs */ = {
+			isa = PBXGroup;
+			children = (
+				A112E3DA234134DE008E6816 /* StoryboardScenes.swift */,
+			);
+			path = Outputs;
 			sourceTree = "<group>";
 		};
 		DFD4B70D8D5A3F48357261C7 /* Frameworks */ = {
@@ -477,6 +513,7 @@
 				A1543940233F73EA00F77D5A /* Resources */,
 				4B041D63359715AAA25D29B3 /* [CP] Embed Pods Frameworks */,
 				A1543993233F915600F77D5A /* Embed Frameworks */,
+				A17E052B234132530037A1C1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -682,6 +719,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A129F08A23413F3300F116B9 /* ForecastByHourCell.xib in Resources */,
 				A15439D22340CB1F00F77D5A /* ForecastCell.xib in Resources */,
 				A15439E02340D86C00F77D5A /* Components.xcassets in Resources */,
 			);
@@ -734,6 +772,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/scripts/swiftgen-components.sh\"\n";
 		};
+		A17E052B234132530037A1C1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/scripts/swiftgen.sh\"\n";
+		};
 		DEB0458B636105B87FAE742F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -766,6 +821,8 @@
 				A15439D72340D17300F77D5A /* UITableViewExtensions.swift in Sources */,
 				A15439C3233FBD2B00F77D5A /* MasterViewModel.swift in Sources */,
 				A15439C5233FBD3900F77D5A /* DetailViewModel.swift in Sources */,
+				A112E3DB234134DE008E6816 /* StoryboardScenes.swift in Sources */,
+				A129F08C2341455500F116B9 /* UICollectionViewExtensions.swift in Sources */,
 				A15439C1233FBCF200F77D5A /* MasterViewController.swift in Sources */,
 				A15439BD233FBB4C00F77D5A /* DetailViewController.swift in Sources */,
 				A1543946233F73EA00F77D5A /* AppDelegate.swift in Sources */,
@@ -818,6 +875,7 @@
 				A15439D12340CB1F00F77D5A /* ForecastCell.swift in Sources */,
 				A15439D42340CB4E00F77D5A /* Nibable.swift in Sources */,
 				A17E052A2340DA630037A1C1 /* Assets.swift in Sources */,
+				A129F08923413F3300F116B9 /* ForecastByHourCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

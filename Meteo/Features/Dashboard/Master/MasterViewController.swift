@@ -33,6 +33,13 @@ final class MasterViewController: UITableViewController {
             return cellForecast(tableView: tableView, indexPath: indexPath, model: model)
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = StoryboardScene.Dashboard.detail.instantiate()
+        let forecast = viewModel.getForecast(at: indexPath)
+        vc.viewModel = DetailViewModel(data: forecast)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: Setup

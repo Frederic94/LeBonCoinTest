@@ -10,7 +10,7 @@ import Foundation
 
 public protocol DashboardUseCase {
     func fetchForecasts(latitude: Double, longitude: Double,
-                        completion: @escaping ([Forecast]?) -> Void)
+                        completion: @escaping ([ForecastByDay]?) -> Void)
 }
 
 public final class GetDashboardUseCase: DashboardUseCase {
@@ -23,18 +23,26 @@ public final class GetDashboardUseCase: DashboardUseCase {
     
     
     public func fetchForecasts(latitude: Double, longitude: Double,
-                               completion: @escaping ([Forecast]?) -> Void) {
+                               completion: @escaping ([ForecastByDay]?) -> Void) {
         remoteService.fetchForecasts(latitude: latitude, longitude: longitude) { values in
             guard let dict = values else {
                 completion(nil)
                 return
             }
+    
+            let array = dict
+                .map { Forecast(date: $0.key,
+                                temperature: $0.value.temperature.value,
+                                pressure: $0.value.pression.niveau_de_la_mer,
+                                rainLevel: $0.value.pluie)
+            }
+            let grouping = Dictionary(grouping: array, by: { $0.date.beginning(of: .day) })
+                .compactMap { dict -> ForecastByDay? in
+                    guard let key = dict.key else { return nil }
+                    return ForecastByDay(date: key, forecasts: dict.value)
+            }
             
-            let forecast = dict.map { Forecast(date: $0.key,
-                                               temperature: $0.value.temperature.value,
-                                               pression: $0.value.pression.niveau_de_la_mer,
-                                               pluie: $0.value.pluie) }
-            completion(forecast)
+            completion(grouping)
         }
     }
     

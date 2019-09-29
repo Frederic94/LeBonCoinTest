@@ -8,15 +8,14 @@
 
 import Foundation
 
+public struct ForecastByDay {
+    public let date: Date
+    public let forecasts: [Forecast]
+}
+
 public struct Forecast {
     public let date: Date
     public let temperature: Double
-    //let nebulosite: NebulositeWS
-    public let pression: Double
-    public let pluie: Double
-    
-    public var temperatureCelsius: String {
-         return String(format: "%.0f", temperature - 273.15)
-    }
-    
+    public let pressure: Double
+    public let rainLevel: Double
 }

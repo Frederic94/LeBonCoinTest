@@ -7,3 +7,40 @@
 //
 
 import Foundation
+
+import Meteo_Core
+import Meteo_Components
+
+final class DetailViewModel {
+    
+    // MARK: Public
+    var cells: [ForecastByHourModel] = []
+    
+    var numberOfCells: Int {
+        return cells.count
+    }
+    
+    init(data: ForecastByDay) {
+        
+        self.cells = data.forecasts
+            .sorted(by: { $0.date < $1.date })
+            .map { forecast in
+                return ForecastByHourModel(hour: forecast.getHour(),
+                                           animationName: forecast.getAnimationName(),
+                                           temp: forecast.getTemperature(),
+                                           pressure: forecast.getPressure())
+        }
+    }
+    
+}
+
+extension Forecast {
+    func getHour() -> String {
+        let formatter = DateFormatter.hour
+        return "\(formatter.string(from: date))h"
+    }
+    
+    func getPressure() -> String {
+        return "Press.\n\(pressure)"
+    }
+}
