@@ -12,6 +12,9 @@
 		A129F08923413F3300F116B9 /* ForecastByHourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129F08723413F3300F116B9 /* ForecastByHourCell.swift */; };
 		A129F08A23413F3300F116B9 /* ForecastByHourCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A129F08823413F3300F116B9 /* ForecastByHourCell.xib */; };
 		A129F08C2341455500F116B9 /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129F08B2341455500F116B9 /* UICollectionViewExtensions.swift */; };
+		A129F08F2341E24C00F116B9 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129F08E2341E24C00F116B9 /* Storage.swift */; };
+		A129F0912341E42A00F116B9 /* CodableStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129F0902341E42A00F116B9 /* CodableStorage.swift */; };
+		A129F0932341ED7500F116B9 /* ConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129F0922341ED7500F116B9 /* ConnectivityManager.swift */; };
 		A1543946233F73EA00F77D5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1543945233F73EA00F77D5A /* AppDelegate.swift */; };
 		A154394D233F73EC00F77D5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A154394C233F73EC00F77D5A /* Assets.xcassets */; };
 		A1543950233F73EC00F77D5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A154394E233F73EC00F77D5A /* LaunchScreen.storyboard */; };
@@ -112,6 +115,9 @@
 		A129F08723413F3300F116B9 /* ForecastByHourCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastByHourCell.swift; sourceTree = "<group>"; };
 		A129F08823413F3300F116B9 /* ForecastByHourCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForecastByHourCell.xib; sourceTree = "<group>"; };
 		A129F08B2341455500F116B9 /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtensions.swift; sourceTree = "<group>"; };
+		A129F08E2341E24C00F116B9 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		A129F0902341E42A00F116B9 /* CodableStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableStorage.swift; sourceTree = "<group>"; };
+		A129F0922341ED7500F116B9 /* ConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityManager.swift; sourceTree = "<group>"; };
 		A1543942233F73EA00F77D5A /* Meteo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meteo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1543945233F73EA00F77D5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A154394C233F73EC00F77D5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -223,6 +229,16 @@
 			path = ForecastByHourCell;
 			sourceTree = "<group>";
 		};
+		A129F08D2341E23D00F116B9 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				A129F08E2341E24C00F116B9 /* Storage.swift */,
+				A129F0902341E42A00F116B9 /* CodableStorage.swift */,
+				A129F0922341ED7500F116B9 /* ConnectivityManager.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		A1543939233F73EA00F77D5A = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +302,7 @@
 		A154397A233F915500F77D5A /* Meteo-Core */ = {
 			isa = PBXGroup;
 			children = (
+				A129F08D2341E23D00F116B9 /* Helper */,
 				A15439C8233FFCAD00F77D5A /* Entities */,
 				A15439B5233FAC4D00F77D5A /* Extensions */,
 				A15439AB233F91DF00F77D5A /* API */,
@@ -851,11 +868,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A15439CC234000F200F77D5A /* DateExtensions.swift in Sources */,
+				A129F0912341E42A00F116B9 /* CodableStorage.swift in Sources */,
 				A15439B2233F98D000F77D5A /* DashboardUseCase.swift in Sources */,
 				A15439C7233FEC1E00F77D5A /* DataFactory.swift in Sources */,
 				A15439B4233FA33500F77D5A /* ForecastWS.swift in Sources */,
 				A15439B7233FAC7D00F77D5A /* DateFormatterExtensions.swift in Sources */,
+				A129F08F2341E24C00F116B9 /* Storage.swift in Sources */,
 				A15439CA233FFCC100F77D5A /* Forecast.swift in Sources */,
+				A129F0932341ED7500F116B9 /* ConnectivityManager.swift in Sources */,
 				A15439B0233F941A00F77D5A /* RemoteDashboardService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

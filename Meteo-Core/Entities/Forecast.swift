@@ -8,12 +8,12 @@
 
 import Foundation
 
-public struct ForecastByDay {
+public struct ForecastByDay: Codable {
     public let date: Date
     public let forecasts: [Forecast]
 }
 
-public struct Forecast {
+public struct Forecast: Codable {
     public let date: Date
     public let temperature: Double
     public let pressure: Double

@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreLocation
+import Connectivity
 
 import Meteo_Core
 import Meteo_Components

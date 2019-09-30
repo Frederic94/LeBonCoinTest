@@ -12,6 +12,10 @@ import Foundation
 public struct DataFactory {
     public static func provideDashboardUseCase() -> DashboardUseCase {
         let remoteService = RemoteDashboardService()
-        return GetDashboardUseCase(remoteService: remoteService)
+        let path = URL(fileURLWithPath: NSHomeDirectory())
+        let disk = DiskStorage(path: path)
+        let storage = CodableStorage(storage: disk)
+        return GetDashboardUseCase(remoteService: remoteService,
+                                   storage: storage)
     }
 }

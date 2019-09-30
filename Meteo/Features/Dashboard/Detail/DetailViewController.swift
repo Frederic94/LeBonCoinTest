@@ -27,7 +27,9 @@ final class DetailViewController: UIViewController {
     }
     
     // Injected
-    var viewModel: DetailViewModel!
+    lazy var viewModel: DetailViewModel = {
+        return DetailViewModel()
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
