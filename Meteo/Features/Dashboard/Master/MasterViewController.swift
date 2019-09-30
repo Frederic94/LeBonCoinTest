@@ -38,10 +38,7 @@ final class MasterViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = StoryboardScene.Dashboard.detail.instantiate()
-        let forecast = viewModel.getForecast(at: indexPath)
-        vc.viewModel.forecastByDay = forecast
-        navigationController?.pushViewController(vc, animated: true)
+        navigateToDetail(index: indexPath.row)
     }
 }
 
@@ -63,6 +60,9 @@ private extension MasterViewController {
         viewModel.reloadTableViewClosure = { [weak self] () in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    self?.navigateToDetail(index: 0)
+                }
             }
         }
     }
@@ -83,13 +83,16 @@ private extension MasterViewController {
         cell.configure(model: model)
         return cell
     }
-}
-
-extension MasterViewController: UISplitViewControllerDelegate {
-    func splitViewController(_ splitViewController: UISplitViewController, showDetail vc: UIViewController, sender: Any?) -> Bool {
-        return true
+    
+    func navigateToDetail(index: Int) {
+        let vc = StoryboardScene.Dashboard.detail.instantiate()
+        let forecast = viewModel.getForecast(at: index)
+        vc.viewModel.forecastByDay = forecast
+        splitViewController?.showDetailViewController(vc, sender: nil)
     }
 }
+
+extension MasterViewController: UISplitViewControllerDelegate { }
 
 extension MasterViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

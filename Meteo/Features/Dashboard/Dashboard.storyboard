@@ -68,6 +68,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="vxN-7Q-c3Y" id="ni2-N9-yTX"/>
+                        <outlet property="dayNameLabel" destination="xbA-t3-v8i" id="QNs-gp-x5a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ju-Iq-f1f" userLabel="First Responder" sceneMemberID="firstResponder"/>

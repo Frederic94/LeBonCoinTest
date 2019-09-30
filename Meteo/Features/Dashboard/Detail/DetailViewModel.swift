@@ -19,8 +19,11 @@ final class DetailViewModel {
     var forecastByDay: ForecastByDay? {
         didSet {
             createCells()
+            initDayName()
         }
     }
+    
+    var dayName: String = ""
     
     var numberOfCells: Int {
         return cells.count
@@ -38,6 +41,11 @@ private extension DetailViewModel {
                                            temp: forecast.getTemperature(),
                                            pressure: forecast.getPressure())
         }
+    }
+    
+    func initDayName() {
+        guard let forecastByDay = forecastByDay else { return }
+        dayName = forecastByDay.date.dayName()
     }
 }
 

@@ -61,8 +61,8 @@ final class MasterViewModel {
         return cells[indexPath.row]
     }
     
-    func getForecast(at indexPath: IndexPath) -> ForecastByDay {
-        return data[indexPath.row]
+    func getForecast(at index: Int) -> ForecastByDay {
+        return data[index]
     }
     
     func fetchCityAndCountry(from location: CLLocation, completion: @escaping (_ city:  String?, _ error: Error?) -> ()) {
@@ -81,27 +81,16 @@ private extension MasterViewModel {
                 return hour == Constant.hourMorning
             }
             
-            var morningTemp: String?
-            if let morning = morning {
-                morningTemp = morning.getTemperature()
-            }
-            
             let afternoon = value.forecasts.first { value in
                 let hour = Calendar.current.component(.hour, from: value.date)
                 return hour == Constant.hourAfternoon
             }
             
-            var afternoonTemp: String?
-            var iconName = ""
-            if let afternoon = afternoon {
-                afternoonTemp = afternoon.getTemperature()
-                iconName = afternoon.getAnimationName()
-            }
-            
-            
+
             let model = ForecastModel(dayName: value.date.dayName(),
-                                      morningTemp: morningTemp, afternoonTemp: afternoonTemp,
-                                      iconName: iconName)
+                                      morningTemp: morning?.getTemperature(),
+                                      afternoonTemp: afternoon?.getTemperature(),
+                                      iconName: afternoon?.getAnimationName() ?? "")
             
             return .forecast(model: model)
         }

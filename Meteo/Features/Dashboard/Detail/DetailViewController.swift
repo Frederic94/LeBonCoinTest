@@ -26,7 +26,8 @@ final class DetailViewController: UIViewController {
         }
     }
     
-    // Injected
+    @IBOutlet private weak var dayNameLabel: UILabel!
+
     lazy var viewModel: DetailViewModel = {
         return DetailViewModel()
     }()
@@ -40,6 +41,8 @@ final class DetailViewController: UIViewController {
 private extension DetailViewController {
     func setup() {
         setupLayout()
+        dayNameLabel.text = viewModel.dayName
+        
     }
     
     func setupLayout() {
