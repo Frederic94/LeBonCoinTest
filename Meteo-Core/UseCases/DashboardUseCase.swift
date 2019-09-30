@@ -28,7 +28,6 @@ public final class GetDashboardUseCase: DashboardUseCase {
         self.storage = storage
     }
     
-    
     public func fetchForecasts(latitude: Double, longitude: Double,
                                completion: @escaping ([ForecastByDay]?) -> Void) {
         if Reachability.isConnectedToNetwork() {

@@ -42,4 +42,3 @@ public extension Nibable where Self: UIView {
         return rootObject
     }
 }
-

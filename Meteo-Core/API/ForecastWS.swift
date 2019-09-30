@@ -56,7 +56,6 @@ public struct PressionWS: Decodable {
     let niveau_de_la_mer: Double
 }
 
-
 public struct TemperatureWS: Decodable {
     let value: Double
     

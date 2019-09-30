@@ -530,7 +530,8 @@
 				A1543940233F73EA00F77D5A /* Resources */,
 				4B041D63359715AAA25D29B3 /* [CP] Embed Pods Frameworks */,
 				A1543993233F915600F77D5A /* Embed Frameworks */,
-				A17E052B234132530037A1C1 /* ShellScript */,
+				A17E052B234132530037A1C1 /* SwiftGen */,
+				A129F0942342185800F116B9 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -771,6 +772,24 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Meteo/Pods-Meteo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A129F0942342185800F116B9 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint lint --config ${SRCROOT}/.swiftlint.yml\n\n";
+		};
 		A15439E22340D8EF00F77D5A /* SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -789,7 +808,7 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/scripts/swiftgen-components.sh\"\n";
 		};
-		A17E052B234132530037A1C1 /* ShellScript */ = {
+		A17E052B234132530037A1C1 /* SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -798,6 +817,7 @@
 			);
 			inputPaths = (
 			);
+			name = SwiftGen;
 			outputFileListPaths = (
 			);
 			outputPaths = (

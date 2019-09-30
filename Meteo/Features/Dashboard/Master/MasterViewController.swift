@@ -98,7 +98,7 @@ extension MasterViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             viewModel.fetch(location: location)
-            viewModel.fetchCityAndCountry(from: location) { [weak self] (city, error) in
+            viewModel.fetchCityAndCountry(from: location) { [weak self] (city, _) in
                 self?.title = city
             }
         }

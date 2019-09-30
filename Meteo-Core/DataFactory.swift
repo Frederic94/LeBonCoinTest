@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 public struct DataFactory {
     public static func provideDashboardUseCase() -> DashboardUseCase {
         let remoteService = RemoteDashboardService()

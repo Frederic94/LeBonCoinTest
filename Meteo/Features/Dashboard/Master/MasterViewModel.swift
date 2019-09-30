@@ -32,7 +32,7 @@ final class MasterViewModel {
     }
     
     // MARK: Public
-    var reloadTableViewClosure: (()->())?
+    var reloadTableViewClosure: (() -> Void)?
     var cells: [MasterCell] = [] {
         didSet {
             reloadTableViewClosure?()
@@ -65,7 +65,8 @@ final class MasterViewModel {
         return data[index]
     }
     
-    func fetchCityAndCountry(from location: CLLocation, completion: @escaping (_ city:  String?, _ error: Error?) -> ()) {
+    func fetchCityAndCountry(from location: CLLocation,
+                             completion: @escaping (_ city: String?, _ error: Error?) -> Void) {
         CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
             completion(placemarks?.first?.locality,
                        error)
@@ -86,7 +87,6 @@ private extension MasterViewModel {
                 return hour == Constant.hourAfternoon
             }
             
-
             let model = ForecastModel(dayName: value.date.dayName(),
                                       morningTemp: morning?.getTemperature(),
                                       afternoonTemp: afternoon?.getTemperature(),

@@ -9,7 +9,6 @@
 import UIKit
 import Lottie
 
-
 public struct ForecastModel {
     let dayName: String
     let morningTemp: String?
@@ -24,13 +23,11 @@ public struct ForecastModel {
     }
 }
 
-
 public final class ForecastCell: UITableViewCell, Nibable {
     @IBOutlet private weak var dayNameLabel: UILabel!
     @IBOutlet private weak var lottieContainer: UIView!
     @IBOutlet private weak var morningTempLabel: UILabel!
     @IBOutlet private weak var afternoonTempLabel: UILabel!
-    
     
     public func configure(model: ForecastModel) {
         dayNameLabel.text = model.dayName
@@ -42,8 +39,6 @@ public final class ForecastCell: UITableViewCell, Nibable {
         lottieContainer.subviews.forEach { (view) in
             view.removeFromSuperview()
         }
-        
-        
         
         let animation = LOTAnimationView(name: model.iconName, bundle: ComponentsBundle.currentBundle)
         animation.loopAnimation = true

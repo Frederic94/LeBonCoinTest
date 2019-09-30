@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 final class DashboardViewController: UISplitViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
