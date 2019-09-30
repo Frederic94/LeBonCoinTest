@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 import Meteo_Core
 import Meteo_Components
@@ -45,8 +46,9 @@ final class MasterViewModel {
         self.useCase = useCase
     }
     
-    func fetch() {
-        useCase.fetchForecasts(latitude: 0, longitude: 0) { [weak self] values in
+    func fetch(location: CLLocation) {
+        useCase.fetchForecasts(latitude: location.coordinate.latitude,
+                               longitude: location.coordinate.longitude) { [weak self] values in
             guard let self = self,
                 let forecasts = values else { return }
             self.data = forecasts
@@ -60,6 +62,13 @@ final class MasterViewModel {
     
     func getForecast(at indexPath: IndexPath) -> ForecastByDay {
         return data[indexPath.row]
+    }
+    
+    func fetchCityAndCountry(from location: CLLocation, completion: @escaping (_ city:  String?, _ error: Error?) -> ()) {
+        CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
+            completion(placemarks?.first?.locality,
+                       error)
+        }
     }
 }
 

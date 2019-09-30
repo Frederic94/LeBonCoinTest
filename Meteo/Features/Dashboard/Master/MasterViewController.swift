@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import CoreLocation
 
 import Meteo_Core
 import Meteo_Components
 
 final class MasterViewController: UITableViewController {
+    
+    private let locationManager = CLLocationManager()
     
     lazy var viewModel: MasterViewModel = {
         return MasterViewModel(useCase: DataFactory.provideDashboardUseCase())
@@ -37,7 +40,7 @@ final class MasterViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = StoryboardScene.Dashboard.detail.instantiate()
         let forecast = viewModel.getForecast(at: indexPath)
-        vc.viewModel = DetailViewModel(data: forecast)
+        vc.viewModel.forecastByDay = forecast
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -45,6 +48,7 @@ final class MasterViewController: UITableViewController {
 // MARK: Setup
 private extension MasterViewController {
     func setup() {
+        setupLocation()
         setupTableView()
         setupVM()
     }
@@ -61,8 +65,15 @@ private extension MasterViewController {
                 self?.tableView.reloadData()
             }
         }
-        
-        viewModel.fetch()
+    }
+    
+    func setupLocation() {
+        locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
     }
 }
 
@@ -71,5 +82,22 @@ private extension MasterViewController {
         let cell = tableView.dequeueReusableCell(withClass: ForecastCell.self, for: indexPath)
         cell.configure(model: model)
         return cell
+    }
+}
+
+extension MasterViewController: UISplitViewControllerDelegate {
+    func splitViewController(_ splitViewController: UISplitViewController, showDetail vc: UIViewController, sender: Any?) -> Bool {
+        return true
+    }
+}
+
+extension MasterViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            viewModel.fetch(location: location)
+            viewModel.fetchCityAndCountry(from: location) { [weak self] (city, error) in
+                self?.title = city
+            }
+        }
     }
 }

@@ -19,7 +19,7 @@ public final class RemoteDashboardService {
     public init() { }
     
     public func fetchForecasts(latitude: Double, longitude: Double, completion: @escaping ([Date: ForecastWS]?) -> Void) {
-        guard let url = URL(string: "\(Constants.baseUrl)?_ll=48.85341,2.3488&_auth=\(Constants.token)") else {
+        guard let url = URL(string: "\(Constants.baseUrl)?_ll=\(latitude),\(longitude)&_auth=\(Constants.token)") else {
             completion(nil)
             return
         }
