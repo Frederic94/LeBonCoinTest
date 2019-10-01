@@ -2,10 +2,16 @@ platform :ios, '10.0'
 use_frameworks!
 
 target 'Meteo' do
-pod 'Alamofire', '~> 4.5'
 pod 'SwiftLint', '~> 0.27.0'
 pod 'SwiftGen', '~> 6.0.2'
-pod 'Connectivity', '~> 2.0'
+end
+
+target 'Meteo-Core' do
+pod 'Alamofire', '~> 4.5'
+end
+
+target 'Meteo-Components' do
+pod 'SwiftGen', '~> 6.0.2'
 pod 'lottie-ios', '~> 2.5.2'
 end
 

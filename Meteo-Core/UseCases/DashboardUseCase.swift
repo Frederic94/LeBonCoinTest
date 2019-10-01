@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Connectivity
 
 public protocol DashboardUseCase {
     func fetchForecasts(latitude: Double, longitude: Double,
